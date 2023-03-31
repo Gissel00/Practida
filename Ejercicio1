@@ -1,0 +1,47 @@
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+       
+        int[,] arreglo1 = new int[,] { { 17, 9, 36 }, { 8, 7, 3 }, { 15, 28, 87} };
+        int[,] arreglo2 = new int[,] { { 9, 21,36 }, { 16, 65, 4 }, { 12, 28, 31 } };
+
+        // Contadores 
+        int mayores1 = 0;
+        int mayores2 = 0;
+        int iguales = 0;
+
+        // Comparar matrices
+
+        //fila
+        for (int i = 0; i < 3; i++)
+        {
+            //columnas
+            for (int j = 0; j < 3; j++)
+            {
+                if (arreglo1[i, j] > arreglo2[i, j])
+                {
+                    mayores1++;
+                }
+                else if (arreglo2[i, j] > arreglo1[i, j])
+                {
+                    mayores2++;
+                }
+                else
+                {
+                    iguales++;
+                }
+            }
+        }
+
+        // resultados
+        Console.WriteLine("Arreglo 1, elementos mayores : " + mayores1);
+        Console.WriteLine("Arreglo 2, elementos mayores: " +mayores2);
+        Console.WriteLine("Elementos iguales en ambos arreglos: " +iguales);
+
+    }
+}
+
