@@ -1,0 +1,81 @@
+using System;
+using System.Reflection;
+
+class Ejercicio2
+{
+    static void Main(string[] args)
+    {
+        int[,] arreglo = new int[,] {
+            { 17, 9, 36 },
+            { 8, 7, 3 },
+            { 15, 28, 57 },
+
+        }; 
+
+        // calculamos el promedio de todos los elementos
+        int sumaTotal = 0;
+        int cantidadTotal = arreglo.Length;
+
+
+        //FILAS
+        for (int i = 0; i < arreglo.GetLength(0); i++)
+        {
+            //COLUMNAS 
+            for (int j = 0; j < arreglo.GetLength(1); j++)
+            {
+                sumaTotal += arreglo[i, j];
+                
+            }
+        }
+
+        double promedio = (double)sumaTotal / cantidadTotal;
+        
+
+        //60%
+
+        double porciento = promedio * 0.60; //es 12
+
+
+        int sumafinal = 0;
+
+        Console.WriteLine("Valores que aplican: ");
+
+        //FILAS
+        for (int i = 0; i < arreglo.GetLength(0); i++)
+        {
+            //COLUMNAS 
+            for (int j = 0; j < arreglo.GetLength(1); j++)
+            {
+                if (Math.Abs(arreglo[i,j] - promedio) <=porciento) {
+                     sumafinal+=arreglo[i,j];
+                    Console.WriteLine(arreglo[i, j]);  
+                }
+            }
+        }
+
+        //no aplican
+        Console.WriteLine(" ");
+        Console.WriteLine("Valores que NO aplican: ");
+        
+        //FILAS
+        for (int i = 0; i < arreglo.GetLength(0); i++)
+        {
+            //COLUMNAS 
+            for (int j = 0; j < arreglo.GetLength(1); j++)
+            {
+                if (Math.Abs(arreglo[i, j] - promedio) > porciento)
+                {
+                    Console.WriteLine(arreglo[i, j]);
+                }
+            }
+        }
+
+
+        //salida 
+        Console.WriteLine(" ");
+        Console.WriteLine("la suma aplicable es: " + sumafinal);
+        Console.WriteLine(" El promedio es: " + promedio);
+        
+
+    }
+}
