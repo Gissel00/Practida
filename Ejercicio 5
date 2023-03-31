@@ -1,0 +1,23 @@
+using System;
+using System.Globalization;
+using static System.Net.Mime.MediaTypeNames;
+
+class Program
+{
+    public static void Main(string[] args)
+
+    {
+        String invertido = "";
+
+        Console.WriteLine("Ingrese una palabra");
+        string texto = Console.ReadLine();
+
+        for (int i = texto.Length - 1; i >= 0; i--)
+        {
+            invertido += texto[i];
+        }
+
+        Console.WriteLine(invertido);
+
+    }
+}
